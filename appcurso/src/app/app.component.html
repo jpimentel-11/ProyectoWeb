@@ -1,0 +1,49 @@
+<input type="text" [(ngModel)]="title">
+
+{{ title  }}
+
+<!--<app-product></app-product>-->
+
+
+<div  *ngIf="title=='nicolas'">  
+    Soy Nicolas
+</div>
+<div  *ngIf="title=='julian'">  
+    Soy Julian
+</div>
+<div  *ngIf="title=='perez'">  
+    Soy Perez
+</div>
+
+
+<!--<div [ngSwitch]="title">
+
+<p *ngSwitchCase="'nicolas'"> Soy Nicolas</p>
+<p *ngSwitchCase="'julian'"> Soy Julian</p>
+<p *ngSwitchCase="'perez'"> Soy Perez</p>
+<p *ngSwitchDefault> No encontrado</p>
+
+</div>-->
+
+<button (click)= "addItem()"> Add items</button>
+
+
+<ul>
+    <li *ngIf="items.length== 0">La lista esta vacia</li>
+    <li *ngFor="let name of items; index as i">
+        {{name}} {{i}}
+        <button (click)= "deleteItem(i)">Delete</button>
+    </li>
+   
+</ul>
+
+<div class="product-grid">
+  <!-- <strong> {{ product.tittle }}</strong><br>
+   {{product.description}}
+    <img [src]="product.image" alt=""><br>-->
+    <app-product
+        *ngFor="let product of products"
+        (productClicked)="clickProduct($event)"
+        [product]="product">
+    </app-product>
+</div>

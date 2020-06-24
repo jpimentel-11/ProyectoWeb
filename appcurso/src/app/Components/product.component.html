@@ -1,0 +1,13 @@
+<div class="card text-center">
+    <div class="card-header">
+        <h3>{{ product.id }} {{ "-"}} {{ product.title | uppercase }} </h3>
+    </div>
+    <div class="card-body">
+        <h2>{{ product.description | slice:0:10 }}  {{ today | date:'HH:mm' }}</h2>
+        <strong>{{ "Precio: "}} {{ product.price | currency }}</strong><br>
+        <img [src]="product.image" alt="">  
+    </div>
+    <div class="card-footer text-muted">
+        <button type="button" class="btn btn-primary" (click)="addCart()">Agregar al carrito</button>
+    </div>
+  </div>
